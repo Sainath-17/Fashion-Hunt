@@ -90,7 +90,7 @@ async function editProduct(id) {
 
 // DELETE PRODUCT
 async function deleteProduct(id) {
-    await fetch(`https://fashion-hunt-backend.onrender.com/products${id}`, {
+    await fetch(`https://fashion-hunt-backend.onrender.com/products/${id}`, {
         method: "DELETE"
     });
 
