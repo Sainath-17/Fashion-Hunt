@@ -7,18 +7,20 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// CONNECT MONGODB
-mongoose.connect("mongodb+srv://Sai:bicsac-zorboq-bAbby0@fashionhunt.eibgczb.mongodb.net/fashionhunt?appName=Fashionhunt")
+/* ================== MONGODB CONNECT ================== */
+mongoose.connect(process.env.MONGO_URL)
 .then(() => {
     console.log("MongoDB Connected ✅");
 
-    app.listen(3000, () => {
-        console.log("Server running on port 3000 🚀");
+    const PORT = process.env.PORT || 3000;
+
+    app.listen(PORT, () => {
+        console.log(`Server running on port ${PORT} 🚀`);
     });
 })
 .catch(err => console.log(err));
 
-// SCHEMA
+/* ================== SCHEMA ================== */
 const productSchema = new mongoose.Schema({
     name: String,
     price: Number,
@@ -30,35 +32,46 @@ const productSchema = new mongoose.Schema({
 
 const Product = mongoose.model("Product", productSchema);
 
-// GET
+/* ================== ROUTES ================== */
+
+// GET PRODUCTS
 app.get("/products", async (req, res) => {
-    const products = await Product.find();
-    res.json(products);
+    try {
+        const products = await Product.find();
+        res.json(products);
+    } catch (err) {
+        res.status(500).json({ error: "Error fetching products" });
+    }
 });
 
-// ADD
+// ADD PRODUCT
 app.post("/products", async (req, res) => {
     try {
         const newProduct = new Product(req.body);
         await newProduct.save();
 
-        console.log("Saved to MongoDB ✅");
-
-        res.json({ message: "Product added" });
+        res.json({ message: "Product added ✅" });
     } catch (err) {
         res.status(500).json({ error: "Error saving product" });
     }
 });
 
-// DELETE
+// DELETE PRODUCT
 app.delete("/products/:id", async (req, res) => {
-    await Product.findByIdAndDelete(req.params.id);
-    res.json({ message: "Deleted ✅" });
+    try {
+        await Product.findByIdAndDelete(req.params.id);
+        res.json({ message: "Deleted ✅" });
+    } catch (err) {
+        res.status(500).json({ error: "Delete failed" });
+    }
 });
 
-// UPDATE
+// UPDATE PRODUCT
 app.put("/products/:id", async (req, res) => {
-    await Product.findByIdAndUpdate(req.params.id, req.body);
-    res.json({ message: "Updated ✅" });
+    try {
+        await Product.findByIdAndUpdate(req.params.id, req.body);
+        res.json({ message: "Updated ✅" });
+    } catch (err) {
+        res.status(500).json({ error: "Update failed" });
+    }
 });
-
