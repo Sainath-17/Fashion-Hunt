@@ -219,3 +219,70 @@ button {
     color: #666;
     font-style: italic;
 }
+
+/* 📱 MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+
+    body {
+        padding: 0;
+    }
+
+    /* HEADER */
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+
+    header h1 {
+        position: static;
+        transform: none;
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .menu {
+        display: flex;
+        gap: 15px;
+        margin-top: 10px;
+    }
+
+    /* HOME PAGE */
+    .cards {
+        flex-direction: column;
+    }
+
+    .main {
+        width: 90%;
+    }
+
+    .small {
+        display: none;
+    }
+
+    /* PRODUCT PAGE */
+    .container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .left, .middle, .right {
+        width: 100%;
+    }
+
+    .middle {
+        height: auto;
+        text-align: center;
+    }
+
+    .right {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    /* BUTTON */
+    button {
+        width: 100%;
+        font-size: 18px;
+    }
+}
