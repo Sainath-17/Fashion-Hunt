@@ -49,7 +49,7 @@ async function addProduct() {
     };
 
     if (editId) {
-        await fetch(`http://localhost:3000/products/${editId}`, {
+        await fetch(`https://fashion-hunt-backend.onrender.com/products${editId}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(product)
@@ -59,7 +59,7 @@ async function addProduct() {
         editId = null;
 
     } else {
-        await fetch("http://localhost:3000/products", {
+        await fetch("https://fashion-hunt-backend.onrender.com/products", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(product)
@@ -73,7 +73,7 @@ async function addProduct() {
 
 // EDIT PRODUCT
 async function editProduct(id) {
-    const res = await fetch("http://localhost:3000/products");
+    const res = await fetch("https://fashion-hunt-backend.onrender.com/products");
     const products = await res.json();
 
     const p = products.find(x => x._id === id);
@@ -90,7 +90,7 @@ async function editProduct(id) {
 
 // DELETE PRODUCT
 async function deleteProduct(id) {
-    await fetch(`http://localhost:3000/products/${id}`, {
+    await fetch(`https://fashion-hunt-backend.onrender.com/products${id}`, {
         method: "DELETE"
     });
 
