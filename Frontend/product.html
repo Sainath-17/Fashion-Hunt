@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Product Details</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div>👾</div>
+
+    <!-- 🔥 TITLE + TAGLINE -->
+    <div class="title-box">
+        <h1 onclick="goHome()" class="logo">FASHION HUNT</h1>
+        <p class="tagline">Handpicked fashion, made simple.</p>
+    </div>
+
+    <div class="menu">
+        <span onclick="goHome()">HOME</span>
+        <span>NEW</span>
+        <span>TRENDING</span>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- LEFT IMAGE -->
+    <div class="left">
+        <img id="product-img">
+    </div>
+
+    <!-- MIDDLE DETAILS -->
+    <div class="middle">
+        <h1 id="product-name"></h1>
+        <h2 id="product-price"></h2>
+
+        <p id="product-desc"></p>
+
+        <a id="product-link" target="_blank">Shop Here 🔗</a>
+        <a id="product-link2" target="_blank">Alternate Link 🔗</a>
+    </div>
+
+    <!-- RIGHT SCROLL PRODUCTS -->
+    <div class="right" id="right"></div>
+
+</div>
+
+<script src="product.js"></script>
+
+</body>
+</html>

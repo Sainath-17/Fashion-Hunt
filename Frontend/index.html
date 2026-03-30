@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Fashion Hunt</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="left-icons">👾</div>
+
+    <!-- 🔥 TITLE + TAGLINE -->
+    <div class="title-box">
+        <h1 onclick="goHome()" class="logo">FASHION HUNT</h1>
+        <p class="tagline">Handpicked fashion, made simple.</p>
+    </div>
+
+    <div class="menu">
+        <span onclick="goHome()">HOME</span>
+        <span>NEW</span>
+        <span>TRENDING</span>
+    </div>
+</header>
+
+<div class="slider">
+
+    <button onclick="prev()">⬅</button>
+
+    <div class="cards">
+        <div class="card small" id="left"></div>
+        <div class="card main" id="center"></div>
+        <div class="card small" id="right"></div>
+    </div>
+
+    <button onclick="next()">➡</button>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
