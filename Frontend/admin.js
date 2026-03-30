@@ -2,7 +2,7 @@ let editId = null;
 
 // LOAD PRODUCTS
 async function loadProducts() {
-    const res = await fetch("https://fashion-hunt-backend.onrender.com");
+    const res = await fetch("https://fashion-hunt-backend.onrender.com/products");
     const products = await res.json();
 
     document.getElementById("admin-products").innerHTML =

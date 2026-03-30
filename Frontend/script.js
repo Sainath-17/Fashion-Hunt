@@ -2,7 +2,7 @@ let products = [];
 let index = 0;
 
 async function loadProducts() {
-    const res = await fetch("https://fashion-hunt-backend.onrender.com");
+    const res = await fetch("https://fashion-hunt-backend.onrender.com/products");
     products = await res.json();
     updateUI();
 }

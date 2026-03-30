@@ -2,7 +2,7 @@ const params = new URLSearchParams(window.location.search);
 const productName = params.get("name");
 
 async function loadProducts() {
-    const res = await fetch("https://fashion-hunt-backend.onrender.com");
+    const res = await fetch("https://fashion-hunt-backend.onrender.com/products");
     const products = await res.json();
 
     const product = products.find(p => p.name === productName);
