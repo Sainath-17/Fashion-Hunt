@@ -286,3 +286,102 @@ button {
         font-size: 18px;
     }
 }
+
+
+/* 🔥 MOBILE PRO LEVEL FIX */
+@media (max-width: 768px) {
+
+  /* HEADER FIX */
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+  }
+
+  .hero {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .hero h1 {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin: 0;
+  }
+
+  .hero p {
+    font-size: 13px;
+    color: #777;
+    margin-top: 5px;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  /* ❌ REMOVE OLD COLUMN LAYOUT */
+  .cards {
+    flex-direction: row;   /* 🔥 IMPORTANT */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 15px;
+    padding: 10px;
+  }
+
+  /* HIDE SCROLLBAR */
+  .cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* ALL CARDS SAME SIZE */
+  .card {
+    min-width: 85%;
+    scroll-snap-align: center;
+  }
+
+  /* REMOVE SMALL/MAIN DIFFERENCE */
+  .small, .main {
+    width: auto;
+    transform: none;
+    opacity: 1;
+  }
+
+  /* ❌ HIDE ARROWS */
+  button {
+    display: none;
+  }
+
+  /* 🔥 PRODUCT PAGE SWIPE (RIGHT SECTION) */
+  .right {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 15px;
+    height: auto;
+  }
+
+  .right::-webkit-scrollbar {
+    display: none;
+  }
+
+  .right .card {
+    min-width: 80%;
+    scroll-snap-align: center;
+  }
+
+  /* STACK MAIN PRODUCT SECTION */
+  .container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .left, .middle, .right {
+    width: 100%;
+  }
+
+  .middle {
+    height: auto;
+    text-align: center;
+  }
+}
